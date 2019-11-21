@@ -1,5 +1,5 @@
-import playerData from './data/nba-players';
-import teamData from './data/nba-teams';
+import playerData from './data/nba-teams';
+import teamData from './data/nba-players';
 import express from 'express';
 
 const app = express();
@@ -28,5 +28,5 @@ app.get('/api/v1/teams', (request, response) => {
 })
 
 app.listen(app.get('port'), () => {
-  console.log(`${app.locals.title} is running on http://localhost${app.get('port')}`)
+  console.log(`${app.locals.title} is running on http://localhost:${app.get('port')}`)
 });
