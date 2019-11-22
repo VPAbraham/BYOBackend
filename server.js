@@ -1,6 +1,7 @@
 import playerData from './data/nba-teams';
 import teamData from './data/nba-players';
 import express from 'express';
+const environment = process.env.NODE_ENV || 'development';
 
 const app = express();
 
