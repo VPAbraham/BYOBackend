@@ -12,7 +12,7 @@ app.locals.teams = teamData;
 app.locals.players = playerData;
 
 app.get('/', (request, response) => {
-  response.send(`${teamData[0]['FULL NAME']}`);
+  response.send('Welcome to NBAPI 2018-2019');
 });
 
 app.get('/api/v1/players', (request, response) => {
