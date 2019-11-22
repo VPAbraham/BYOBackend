@@ -1,6 +1,5 @@
-const teamData = [
+ [
   {
-    "Id": 1,
     "Team": "Celtics",
     "Abbreviation": "Bos",
     "City": "Boston",
@@ -8,7 +7,6 @@ const teamData = [
     "Venue": "TD Garden"
   },
   {
-    "Id": 2,
     "Team": "Nets",
     "Abbreviation": "Bro",
     "City": "Brooklyn",
@@ -16,7 +14,6 @@ const teamData = [
     "Venue": "Barclays Center"
   },
   {
-    "Id": 3,
     "Team": "Knicks",
     "Abbreviation": "Nyk",
     "City": "New York",
@@ -24,7 +21,6 @@ const teamData = [
     "Venue": "Madison Square Garden"
   },
   {
-    "Id": 4,
     "Team": "76ers",
     "Abbreviation": "Phi",
     "City": "Philadelphia",
@@ -32,7 +28,6 @@ const teamData = [
     "Venue": "Wells Fargo Center"
   },
   {
-    "Id": 5,
     "Team": "Raptors",
     "Abbreviation": "Tor",
     "City": "Toronto",
@@ -40,7 +35,6 @@ const teamData = [
     "Venue": "Air Canada Centre"
   },
   {
-    "Id": 6,
     "Team": "Bulls",
     "Abbreviation": "Chi",
     "City": "Chicago",
@@ -48,7 +42,6 @@ const teamData = [
     "Venue": "United Center"
   },
   {
-    "Id": 7,
     "Team": "Cavaliers",
     "Abbreviation": "Cle",
     "City": "Cleveland",
@@ -56,7 +49,6 @@ const teamData = [
     "Venue": "Quicken Loans Arena"
   },
   {
-    "Id": 8,
     "Team": "Pistons",
     "Abbreviation": "Det",
     "City": "Detriot",
@@ -64,7 +56,6 @@ const teamData = [
     "Venue": "The Palace of Auburn Hills"
   },
   {
-    "Id": 9,
     "Team": "Pacers",
     "Abbreviation": "Ind",
     "City": "Indianapolis",
@@ -72,7 +63,6 @@ const teamData = [
     "Venue": "Bankers Life Fieldhouse"
   },
   {
-    "Id": 10,
     "Team": "Bucks",
     "Abbreviation": "Mil",
     "City": "Milwaukee",
@@ -80,7 +70,6 @@ const teamData = [
     "Venue": "Bradley Center"
   },
   {
-    "Id": 11,
     "Team": "Hawks",
     "Abbreviation": "Atl",
     "City": "Atlanta",
@@ -88,7 +77,6 @@ const teamData = [
     "Venue": "Philips Arena"
   },
   {
-    "Id": 12,
     "Team": "Hornets",
     "Abbreviation": "Cha",
     "City": "Charlotte",
@@ -96,7 +84,6 @@ const teamData = [
     "Venue": "Time Warner Cable Arena"
   },
   {
-    "Id": 13,
     "Team": "Heat",
     "Abbreviation": "Mia",
     "City": "Miami",
@@ -104,7 +91,6 @@ const teamData = [
     "Venue": "AmericanAirlines Arena"
   },
   {
-    "Id": 14,
     "Team": "Magic",
     "Abbreviation": "Orl",
     "City": "Orlando",
@@ -112,7 +98,6 @@ const teamData = [
     "Venue": "Amway Center"
   },
   {
-    "Id": 15,
     "Team": "Wizards",
     "Abbreviation": "Was",
     "City": "Washington",
@@ -120,7 +105,6 @@ const teamData = [
     "Venue": "Verizon Center"
   },
   {
-    "Id": 16,
     "Team": "Nuggets",
     "Abbreviation": "Den",
     "City": "Denver",
@@ -128,7 +112,6 @@ const teamData = [
     "Venue": "Pepsi Center"
   },
   {
-    "Id": 17,
     "Team": "Timberwolves",
     "Abbreviation": "Min",
     "City": "Minneapolis",
@@ -136,7 +119,6 @@ const teamData = [
     "Venue": "Target Center"
   },
   {
-    "Id": 18,
     "Team": "Thunder",
     "Abbreviation": "Okc",
     "City": "Oklahoma City",
@@ -144,7 +126,6 @@ const teamData = [
     "Venue": "Chesapeake Energy Arena"
   },
   {
-    "Id": 19,
     "Team": "Trail Blazers",
     "Abbreviation": "Por",
     "City": "Portland",
@@ -152,7 +133,6 @@ const teamData = [
     "Venue": "Rose Garden"
   },
   {
-    "Id": 20,
     "Team": "Jazz",
     "Abbreviation": "Uta",
     "City": "Salt Lake City",
@@ -160,7 +140,6 @@ const teamData = [
     "Venue": "EnergySolutions Arena"
   },
   {
-    "Id": 21,
     "Team": "Warriors",
     "Abbreviation": "Gol",
     "City": "Oakland",
@@ -168,7 +147,6 @@ const teamData = [
     "Venue": "Oracle Arena"
   },
   {
-    "Id": 22,
     "Team": "Clippers",
     "Abbreviation": "Lac",
     "City": "Los Angeles",
@@ -176,7 +154,6 @@ const teamData = [
     "Venue": "Staples Center"
   },
   {
-    "Id": 23,
     "Team": "Lakers",
     "Abbreviation": "Lal",
     "City": "Los Angeles",
@@ -184,7 +161,6 @@ const teamData = [
     "Venue": "Staples Center"
   },
   {
-    "Id": 24,
     "Team": "Suns",
     "Abbreviation": "Pho",
     "City": "Phoenix",
@@ -192,7 +168,6 @@ const teamData = [
     "Venue": "US Airways Center"
   },
   {
-    "Id": 25,
     "Team": "Kings",
     "Abbreviation": "Sac",
     "City": "Sacramento",
@@ -200,7 +175,6 @@ const teamData = [
     "Venue": "Power Balance Pavilion"
   },
   {
-    "Id": 26,
     "Team": "Mavericks",
     "Abbreviation": "Dal",
     "City": "Dallas",
@@ -208,7 +182,6 @@ const teamData = [
     "Venue": "American Airlines Center"
   },
   {
-    "Id": 27,
     "Team": "Rockets",
     "Abbreviation": "Hou",
     "City": "Houston",
@@ -216,7 +189,6 @@ const teamData = [
     "Venue": "Toyota Center"
   },
   {
-    "Id": 28,
     "Team": "Grizzlies",
     "Abbreviation": "Mem",
     "City": "Memphis",
@@ -224,7 +196,6 @@ const teamData = [
     "Venue": "FedExForum"
   },
   {
-    "Id": 29,
     "Team": "Pelicans",
     "Abbreviation": "Nor",
     "City": "New Orleans",
@@ -232,7 +203,6 @@ const teamData = [
     "Venue": "New Orleans Arena"
   },
   {
-    "Id": 30,
     "Team": "Spurs",
     "Abbreviation": "San",
     "City": "San Antonio",
@@ -240,5 +210,3 @@ const teamData = [
     "Venue": "AT&T Center"
   }
 ]
-
-export default teamData;

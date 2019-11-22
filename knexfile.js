@@ -4,7 +4,7 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: 'postgres://localhost/nba-stats',
+    connection: 'postgres://localhost/nbastats',
     useNullAsDefault: true,
     migrations: {
       directory: './db/migrations'
