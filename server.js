@@ -17,6 +17,7 @@ app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on http://localhost:${app.get('port')}`)
 });
 
+//Redirect link to endpoint documentation
 app.get('/', (request, response) => {
   response.send('Endpoints available at https://github.com/VPAbraham/BYOBackend');
 });
@@ -127,6 +128,29 @@ app.post('/api/v1/teams', (request, response) => {
 });
 
 
+app.delete('/api/v1/teams/:id', (request, response) => {
+  const {id} = request.params;
+  database('teams')
+    .where({id: id})
+    .del()
+    .then((team) => {
+      response.status(201).json({ team, id });
+    })
+    .catch((error) => {
+      response.status(422).json({ error });
+    });
+});
 
+app.delete('/api/v1/players/:id', (request, response) => {
+  const { id } = request.params;
 
-
+  database('players')
+    .where({ id: id })
+    .del()
+    .then((player) => {
+      response.status(201).json({ player, id });
+    })
+    .catch((error) => {
+      response.status(422).json({ error });
+    });
+});
