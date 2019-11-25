@@ -127,7 +127,7 @@ app.post('/api/v1/teams', (request, response) => {
     });
 });
 
-
+//DELETE by team
 app.delete('/api/v1/teams/:id', (request, response) => {
   const {id} = request.params;
   database('teams')
@@ -141,16 +141,17 @@ app.delete('/api/v1/teams/:id', (request, response) => {
     });
 });
 
+//DELETE by player
 app.delete('/api/v1/players/:id', (request, response) => {
-  const { id } = request.params;
+  const {id} = request.params;
 
   database('players')
-    .where({ id: id })
+    .where({id: id})
     .del()
     .then((player) => {
-      response.status(201).json({ player, id });
+      response.status(201).json({player, id});
     })
     .catch((error) => {
-      response.status(422).json({ error });
+      response.status(422).json({error});
     });
 });
