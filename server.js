@@ -13,8 +13,9 @@ app.use(express.json());
 app.use(cors());
 
 app.locals.title = 'NBAPI';
-app.locals.teams = teamData;
-app.locals.players = playerData;
+app.listen(app.get('port'), () => {
+  console.log(`${app.locals.title} is running on http://localhost:${app.get('port')}`)
+});
 
 app.get('/', (request, response) => {
   response.send('Endpoints available at https://github.com/VPAbraham/BYOBackend');
@@ -129,6 +130,3 @@ app.post('/api/v1/teams', (request, response) => {
 
 
 
-app.listen(app.get('port'), () => {
-  console.log(`${app.locals.title} is running on http://localhost:${app.get('port')}`)
-});
