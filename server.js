@@ -81,7 +81,7 @@ app.get('/api/v1/teams/:id', (request, response) => {
 app.post('/api/v1/players', (request, response) => {
   const player = request.body;
 
-  for (let requiredParam of ['name', 'pos', 'age']) {
+  for (let requiredParam of ['name', 'pos', 'age', 'team']) {
     if (!player[requiredParam]) {
       return response
         .status(422)
@@ -98,6 +98,30 @@ app.post('/api/v1/players', (request, response) => {
     })
     .catch(error => {
       response.status(500).json({ error });
+    });
+});
+
+//POST a new team
+app.post('/api/v1/teams', (request, response) => {
+  const team = request.body;
+
+  for (let requiredParam of ['team', 'abbreviatation', 'city', 'state', 'venue']) {
+    if (!team[requiredParam]) {
+      return response
+        .status(422)
+        .send({
+          error: `Expected format: { team: <String>, abbreviation: <String>, city: <String>, state: <String>, venue: <String>. 
+      \"${requiredParam}\" property.}`
+        })
+    }
+  }
+
+  database('team').insert(player, 'id')
+    .then(player => {
+      response.status(201).json({id: player[0]});
+    })
+    .catch(error => {
+      response.status(500).json({error});
     });
 });
 
