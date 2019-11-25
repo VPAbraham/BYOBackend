@@ -77,6 +77,30 @@ app.get('/api/v1/teams/:id', (request, response) => {
     });
 });
 
+//POST a new player
+app.post('/api/v1/players', (request, response) => {
+  const player = request.body;
+
+  for (let requiredParam of ['name', 'pos', 'age']) {
+    if (!player[requiredParam]) {
+      return response
+        .status(422)
+        .send({
+          error: `Expected format: { name: <String>, pos: <String>, age: <Integer>, team: <String>. 
+      \"${requiredParam}\" property.}`
+        })
+    }
+  }
+
+  database('players').insert(player, 'id')
+    .then(player => {
+      response.status(201).json({id: player[0]});
+    })
+    .catch(error => {
+      response.status(500).json({ error });
+    });
+});
+
 
 
 
