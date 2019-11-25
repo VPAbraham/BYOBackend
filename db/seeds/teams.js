@@ -3,7 +3,8 @@ const playersData = require('../../data/nba-players');
 
 
 const createTeam = (knex, team) => {
-  return knex('teams').insert({
+  return knex('teams')
+  .insert({
     team: team.team,
     abbrev: team.abbrev,
      city: team.city,
@@ -11,12 +12,12 @@ const createTeam = (knex, team) => {
      venue: team.venue
   }, 'abbrev')
   .then(teamAbbrev => {
-
     let playerPromises = [];
-
-    playersData.forEach(player => {
+    playersData
+    .forEach(player => {
       playerPromises.push(
         createPlayer(knex, {
+          name: player.Name,
           team_abbrev:teamAbbrev,
           pos: player.pos,
           age: player.age,
@@ -35,11 +36,11 @@ const createTeam = (knex, team) => {
           bpg: player.bpg,
           topg: player.topg, 
         })
-      )
+      );
     });
 
     return Promise.all(playerPromises);
-  })
+  });
 };
 
 const createPlayer = (knex, player) => {
@@ -47,8 +48,8 @@ const createPlayer = (knex, player) => {
 };
 
 exports.seed = (knex) => {
-  // Deletes ALL existing entries
-  return knex('players').del()
+  return knex('players')
+    .del()
     .then(() => knex('teams').del())
     .then(() => {
       let teamPromises = [];
