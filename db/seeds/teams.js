@@ -5,36 +5,37 @@ const playersData = require('../../data/nba-players');
 const createTeam = (knex, team) => {
   return knex('teams')
   .insert({
-    team: team.team,
-    abbrev: team.abbrev,
-     city: team.city,
-     state: team.state,
-     venue: team.venue
-  }, 'abbrev')
-  .then(teamAbbrev => {
+    team: team.Team,
+    abbreviation: team.Abbreviation,
+    city: team.City,
+    state: team.State,
+    venue: team.Venue
+  }, 'abbreviation')
+  .then(abbreviation => {
     let playerPromises = [];
     playersData
+    .filter(player => player.Team === abbreviation[0])
     .forEach(player => {
       playerPromises.push(
         createPlayer(knex, {
           name: player.Name,
-          team_abbrev:teamAbbrev,
-          pos: player.pos,
-          age: player.age,
-          gp: player.gp,
-          mpg: player.gp,
-          fta: player.fta,
-          ftper: player.ftper,
-          _2pa: player._2pa,
-          _2ptper: player._2ptper,
-          _3pa: player._3pa,
-          _3ptper: player._3ptper,
-          ppg: player.ppg,
-          rpg: player.rpg,
-          apg: player.apg,
-          spg: player.spg,
-          bpg: player.bpg,
-          topg: player.topg, 
+          pos: player.Pos,
+          age: player.Age,
+          gp: player.Gp,
+          mpg: player.Mpg,
+          fta: player.Fta,
+          ftper: player.FTPer,
+          _2pa: player._2Pa,
+          _2ptper: player._2PtPer,
+          _3pa: player._3Pa,
+          _3ptper: player._3PtPer,
+          ppg: player.Ppg,
+          rpg: player.Rpg,
+          apg: player.Apg,
+          spg: player.Spg,
+          bpg: player.Bpg,
+          topg: player.Topg,
+          team: abbreviation[0] 
         })
       );
     });

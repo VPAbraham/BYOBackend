@@ -8,11 +8,12 @@ const express = require('express');
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
 const database = require('knex')(configuration);
-
+const cors = require('cors');
 const app = express();
 
 app.set('port', process.env.PORT || 3000);
 app.use(express.json());
+app.use(cors());
 
 app.locals.title = 'NBAPI';
 app.locals.teams = teamData;
@@ -23,16 +24,14 @@ app.get('/', (request, response) => {
 });
 
 app.get('/api/v1/players', (request, response) => {
-  database('players').select()
+  database('players')
+  .select()
   .then((players) => {
     response.status(200).json(players)
   })
   .catch((error) => {
     response.status(500).json({ error: "Unable to retrieve player data" });
   })
-  // const { players } = app.locals;
-  // console.log('2018-2019 NBA Player Stats', players.length)
-  // response.json({ players });
 })
 
 app.get('/api/v1/teams', (request, response) => {
@@ -43,9 +42,7 @@ app.get('/api/v1/teams', (request, response) => {
     .catch((error) => {
       response.status(500).json({ error: "Unable to retrieve player data" });
     })
-  // const { teams } = app.locals;
-  // console.log('NBA Teams', teams.length)
-  // response.json({ teams });
+
 })
 
 app.listen(app.get('port'), () => {

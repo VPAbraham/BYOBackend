@@ -3,8 +3,8 @@ exports.up = function(knex) {
     knex.schema.createTable('teams', function(table) {
       table.increments('id').primary();
       table.string('team');
-      table.string('abbrev');
-      table.unique('abbrev');
+      table.string('abbreviation');
+      table.unique('abbreviation');
       table.string('city');
       table.string('state');
       table.string('venue');
@@ -14,9 +14,9 @@ exports.up = function(knex) {
 
     knex.schema.createTable('players', function (table) {
       table.increments('id').primary();
-      table.string('team_abbrev');
-      table.foreign('team_abbrev')
-        .references('teams.abbrev');
+      table.string('team');
+      table.foreign('team')
+        .references('teams.abbreviation');
       table.string('pos');
       table.integer('age');
       table.integer('gp');
