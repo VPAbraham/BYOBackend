@@ -1,4 +1,4 @@
- [
+const teamsData = [
   {
     "Team": "Celtics",
     "Abbreviation": "Bos",
@@ -210,3 +210,5 @@
     "Venue": "AT&T Center"
   }
 ]
+
+module.exports = teamsData;

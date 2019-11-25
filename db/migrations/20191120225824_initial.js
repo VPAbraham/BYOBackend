@@ -16,7 +16,7 @@ exports.up = function(knex) {
       table.increments('id').primary();
       table.string('team');
       table.foreign('team')
-        .references('teams.abbreviation');
+           .references('teams.abbreviation');
       table.string('pos');
       table.integer('age');
       table.integer('gp');
