@@ -8,7 +8,6 @@ exports.up = function(knex) {
       table.string('city');
       table.string('state');
       table.string('venue');
-
       table.timestamps(true, true);
     }),
 

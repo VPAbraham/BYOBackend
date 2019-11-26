@@ -10,16 +10,16 @@ const createTeam = (knex, team) => {
     city: team.City,
     state: team.State,
     venue: team.Venue
-  }, 'abbreviation')
-  .then(abbreviation => {
+  }, 'id')
+  .then(teamId => {
     let playerPromises = [];
+    console.log(teamId)
     playersData
-    .filter(player => player.Team === abbreviation[0])
     .forEach(player => {
       playerPromises.push(
         createPlayer(knex, {
-          name: player.Name,
-          pos: player.Pos,
+          name: player.name,
+          pos: player.pos,
           age: player.Age,
           gp: player.Gp,
           mpg: player.Mpg,
@@ -35,7 +35,7 @@ const createTeam = (knex, team) => {
           spg: player.Spg,
           bpg: player.Bpg,
           topg: player.Topg,
-          team: abbreviation[0] 
+          teamid: teamId[0]
         })
       );
     });
