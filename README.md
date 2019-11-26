@@ -2,7 +2,9 @@
 
 A cultivated list of statistical data for all players and team for the 2018-2019 NBA season.
 
-Peruse player data by a number of 
+Peruse team and player data by a variety of criteria, as described by the documentation below.
+
+[View project board and planning process here.](https://github.com/VPAbraham/BYOBackend/projects/1)
  
 ### Stack and tools used
   - NodeJS
