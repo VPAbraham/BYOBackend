@@ -1,4 +1,4 @@
-[
+const playersData = [
   {
     "Name": "Alex Abrines",
     "TeamId": 18,
@@ -13062,3 +13062,5 @@
     "Topg": 1.42
   }
 ]
+
+module.exports = playersData;

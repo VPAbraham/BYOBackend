@@ -1,4 +1,4 @@
-[
+const teamsData = [
   {
     "Team": "Celtics",
     "Abbreviation": "Bos",
@@ -240,3 +240,5 @@
     "Id": 30
   }
 ]
+
+module.exports = teamsData;

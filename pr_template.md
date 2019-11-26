@@ -3,7 +3,6 @@
 #### Optional background context:
 #### Questions:
 
-
 - [ ] Changes need to be finished.
 - [ ] Push my commits to GitHub.
 - [ ] For review only.
