@@ -35,7 +35,7 @@ app.get('/', (request, response) => {
 
 //GET all players
 app.get('/api/v1/players', (request, response) => {
-  //This specificies the route the user will GET from.
+  //This specifies the route the user will GET from.
   database('players')
   .select()
   .then((players) => {
@@ -51,6 +51,8 @@ app.get('/api/v1/players', (request, response) => {
 
 //GET all teams
 app.get('/api/v1/teams', (request, response) => {
+    //This specifies the route the user will GET from.
+
   database('players').select()
     .then((players) => {
       response.status(200).json(players)
@@ -112,47 +114,62 @@ app.get('/api/v1/teams/:id', (request, response) => {
 
 //POST a new player
 app.post('/api/v1/players', (request, response) => {
+  //This specifies the route the POST request will be sent to.
   const player = request.body;
-
+  //This sets the request body to a variable for cleaner code.
   for (let requiredParam of ['name', 'pos', 'age', 'team']) {
+    //The parameters required for a new player are defined here.
     if (!player[requiredParam]) {
       return response
         .status(422)
         .send({
           error: `Expected format: { name: <String>, pos: <String>, age: <Integer>, team: <String>. 
-      \"${requiredParam}\" property.}`
-        })
+      \"${requiredParam}\" property.}` })
+      //This if block asserts that if a player does not contain all the required paramters, 
+      //the new player won't be added. Also, they will receive an error response with a 422 status code.
     }
   }
 
   database('players').insert(player, 'id')
+  //Here, the player database is being selected to insert a new player with a newly generated id
     .then(player => {
       response.status(201).json({id: player[0]});
     })
+    //if the player is successfully POSTed, the user will get back a 201 response code and the new player id.
     .catch(error => {
       response.status(500).json({ error });
     });
+    //if unsuccessful, the user will receive the error and a response with a code of 500.
 });
 
 //POST a new team
 app.post('/api/v1/teams', (request, response) => {
+    //This specifies the route the POST request will be sent to.
   const team = request.body;
+  //The request body is being set to a variable for code cleanliness.
 
   for (let requiredParam of ['team', 'abbreviatation', 'city', 'state', 'venue']) {
+    //The parameters required for a new player are defined here.
     if (!team[requiredParam]) {
       return response
         .status(422)
         .send({
           error: `Expected format: { team: <String>, abbreviation: <String>, city: <String>, state: <String>, venue: <String>. 
       \"${requiredParam}\" property.}`
+            //This if block asserts that if a player does not contain all the required paramters, 
+      //the new player won't be added. Also, they will receive an error response with a 422 status code.
+
         })
     }
   }
 
   database('team').insert(player, 'id')
+  //Here, the player database is being selected to insert a new player with a newly generated id
     .then(player => {
       response.status(201).json({id: player[0]});
     })
+    //if the new team is successfully POSTed, the user will get back a 201 response code and the new player id.
+
     .catch(error => {
       response.status(500).json({error});
     });
@@ -160,29 +177,42 @@ app.post('/api/v1/teams', (request, response) => {
 
 //DELETE by team
 app.delete('/api/v1/teams/:id', (request, response) => {
+    //this DELETE method utilizes a dynamic route that will dictate what team it is getting by what their id number is.
   const {id} = request.params;
+    // the id will be derived from the parameter of id applied to the end of the fetch URL.
   database('teams')
     .where({id: id})
-    .del()
+    .del()        
+    //this selects the team entry by id number and deletes the entry from the db.
     .then((team) => {
       response.status(201).json({ team, id });
     })
+    //if the delete is a success, the entry should be removed and the user will receive a 201 
+    //response code and the JSON reflecting which team was removed    
     .catch((error) => {
       response.status(422).json({ error });
     });
+  //If the operation is not successful in deleting the entry for some reason, it will send back
+  //a 422 response code and the error message.    
 });
 
 //DELETE by player
 app.delete('/api/v1/players/:id', (request, response) => {
+  //this DELETE method utilizes a dynamic route that will dictate what team it is getting by what their id number is.
   const {id} = request.params;
-
+  // the id will be derived from the parameter of id applied to the end of the fetch URL.
   database('players')
     .where({id: id})
     .del()
+    //this selects the player entry by id number and deletes the entry from the db.
     .then((player) => {
       response.status(201).json({player, id});
     })
+    //if the delete is a success, the entry should be removed and the user will receive a 201 
+    //response code and the JSON reflecting which team was removed
     .catch((error) => {
       response.status(422).json({error});
     });
+    //If the operation is not successful in deleting the entry for some reason, it will send back
+    //a 422 response code and the error message.
 });
