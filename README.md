@@ -17,7 +17,7 @@ Peruse team and player data by a variety of criteria, as described by the docume
 ### Endpoints
 
 ## Base Url:
-https://nbapi2018.herokuapp.com/
+https://localhost:3000
 
 
 ## Retrieve All Teams
