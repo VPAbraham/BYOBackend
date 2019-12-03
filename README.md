@@ -4,8 +4,6 @@ A cultivated list of statistical data for all players and team for the 2018-2019
 
 Peruse team and player data by a variety of criteria, as described by the documentation below.
 
-[Heroku Deployment available here](https://nbapi2018.herokuapp.com/teams)
-
 [View project board and planning process here.](https://github.com/VPAbraham/BYOBackend/projects/1)
  
 ### Stack and tools used
